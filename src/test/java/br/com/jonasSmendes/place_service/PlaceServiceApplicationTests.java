@@ -38,7 +38,15 @@ class PlaceServiceApplicationTests {
 
 	@Test
 	void testefail(){
-
+		webTestClient
+				.post()
+				.uri("/places")
+				.bodyValue(
+						new PlaceRequest(null,null)
+				)
+				.exchange()
+				.expectStatus()
+				.isBadRequest();
 	}
 
 }
